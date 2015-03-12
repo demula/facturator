@@ -128,11 +128,11 @@ if __name__ == '__main__':
     # Config
     pdf_general = 'facturas.pdf'
     plantilla_email = 'mail_factura.html'
-    email_sender = 'facturacion@tarjetalia.es'
-    email_subject = 'Facturacion enero - TSF'
-    smtp_server = 'mail.tarjetalia.es:587'
-    smtp_user = 'facturacion@tarjetalia.es'
-    smtp_pass = 'neptuno123'
+    email_sender = 'emai_sender_user@example.com'
+    email_subject = 'Email subject'
+    smtp_server = 'mail.example.com:587'
+    smtp_user = 'emai_sender_user@example.com'
+    smtp_pass = '1234'
 
     enviar_emails(
                 pdf_general,
