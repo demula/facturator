@@ -1,19 +1,21 @@
 #!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 import sys
-import os
+
 import facturator
+
 
 try:
     import wx
 except ImportError, inst:
-    print >>sys.stderr, 'wxPython is not available'
+    print >> sys.stderr, 'wxPython is not available'
     sys.exit(1)
 
 REQUIRED_WX_VERSION = (3, 0)
 CURRENT_WX_VERSION = wx.VERSION[:2]
 if CURRENT_WX_VERSION != REQUIRED_WX_VERSION:
-    print >> sys.stderr, ('wxPython version incorrect; is %d.%d, must be %d.%d' % (CURRENT_WX_VERSION + REQUIRED_WX_VERSION))
+    print >> sys.stderr, ('wxPython version incorrect; is %d.%d, must be %d.%d' %
+                          (CURRENT_WX_VERSION + REQUIRED_WX_VERSION))
     sys.exit(2)
 
 
@@ -79,7 +81,7 @@ class RootFrame(wx.Frame):
         sizer_4 = wx.BoxSizer(wx.HORIZONTAL)
         sizer_3 = wx.BoxSizer(wx.HORIZONTAL)
         sizer_3.Add(self.label_1, 0, wx.ALIGN_CENTER_VERTICAL, 0)
-        sizer_3.Add(self.pdf_general, 0, wx.ALIGN_RIGHT|wx.ALIGN_CENTER_VERTICAL, 0)
+        sizer_3.Add(self.pdf_general, 0, wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL, 0)
         sizer_2.Add(sizer_3, 1, wx.ALIGN_RIGHT, 0)
         sizer_4.Add(self.label_2, 0, wx.ALIGN_CENTER_VERTICAL, 0)
         sizer_4.Add(self.plantilla_email, 0, 0, 0)
@@ -90,7 +92,7 @@ class RootFrame(wx.Frame):
         sizer_6.Add(self.label_4, 0, wx.ALIGN_CENTER_VERTICAL, 0)
         sizer_6.Add(self.email_subject, 0, 0, 0)
         sizer_2.Add(sizer_6, 1, wx.ALIGN_RIGHT, 0)
-        sizer_7.Add(self.label_5, 0, wx.LEFT|wx.ALIGN_CENTER_VERTICAL, 0)
+        sizer_7.Add(self.label_5, 0, wx.LEFT | wx.ALIGN_CENTER_VERTICAL, 0)
         sizer_7.Add(self.smtp_server, 0, 0, 0)
         sizer_2.Add(sizer_7, 1, wx.ALIGN_RIGHT, 0)
         sizer_8.Add(self.label_6, 0, wx.ALIGN_CENTER_VERTICAL, 0)
@@ -116,19 +118,21 @@ class RootFrame(wx.Frame):
         smtp_pass = str(self.smtp_pass.GetValue())
         try:
             facturator.enviar_emails(
-                    pdf_general,
-                    plantilla_email,
-                    email_sender,
-                    email_subject,
-                    smtp_server,
-                    smtp_user,
-                    smtp_pass)
+                pdf_general,
+                plantilla_email,
+                email_sender,
+                email_subject,
+                smtp_server,
+                smtp_user,
+                smtp_pass)
             wx.MessageBox('Todos los emails enviados correctamente.', 'Terminado', style=wx.OK | wx.ICON_INFORMATION)
         except:
             wx.MessageBox('Hubo un problema al procesar el pdf. '
-                    'Para mas informacion ejecutalo el programa desde la consola.', 'Fallo en el proceso', style=wx.OK | wx.ICON_ERROR)
+                          'Para mas informacion ejecutalo el programa desde la consola.', 'Fallo en el proceso',
+                          style=wx.OK | wx.ICON_ERROR)
             print "problemo!"
         event.Skip()
+
 
 # end of class RootFrame
 
@@ -139,6 +143,7 @@ class App(wx.App):
         self._project_frame.Show()
         self.SetTopWindow(self._project_frame)
         return True
+
 # end of class App
 
 if __name__ == '__main__':

@@ -22,7 +22,7 @@
                         <option>0</option>
                         <object class="wxStaticText" name="label_1" base="EditStaticText">
                             <attribute>1</attribute>
-                            <label>Nombre pdf global:</label>
+                            <label>Carpeta con pdf facturas:</label>
                             <size>200, 21</size>
                         </object>
                     </object>
@@ -33,7 +33,7 @@
                         <object class="wxTextCtrl" name="pdf_general" base="EditTextCtrl">
                             <style>wxTE_RIGHT</style>
                             <focused>1</focused>
-                            <value>facturas.pdf</value>
+                            <value>facturas</value>
                             <size>200, 35</size>
                         </object>
                     </object>
